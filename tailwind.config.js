@@ -1,14 +1,18 @@
 module.exports = {
   purge: {
-    content: ['./src/*/*.html'],
+    enabled: true,
+    content: [
+      './src/**/*.html',
+      './src/**/*.vue',
+      './src/**/*.jsx',
+    ]
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
   },
   variants: {
-    extend: {
-    },
+    extend: {},
   },
   plugins: [],
 }

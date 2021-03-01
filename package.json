@@ -1,23 +1,20 @@
 {
-  "name": "filmhelg_parcel-tailwind",
+  "name": "filmhelgny",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel serve src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "postcss src/tailwind.css -o src/dist.css",
+    "dev": "serve src"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "animejs": "^3.2.1",
-    "parcel": "^1.12.4"
-  },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^3.0.0",
-    "@tailwindcss/postcss7-compat": "^2.0.3",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+    "autoprefixer": "^10.2.4",
+    "postcss": "^8.2.6",
+    "tailwindcss": "^2.0.3"
+  },
+  "dependencies": {
+    "serve": "^11.3.2"
   }
 }
