@@ -3,3 +3,4 @@ dist
 node_modules
 .env
 src/main.css
+.DS_Store
