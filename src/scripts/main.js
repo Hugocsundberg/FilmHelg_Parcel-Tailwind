@@ -1,3 +1,4 @@
+//Get query parameters
 const getQuery = () => {
     let QueryParameters = window.location.search
     QueryParameters = QueryParameters.replace('?', '')
@@ -17,6 +18,7 @@ const queryScore = getQuery().name
 const header = document.querySelector('h1.welcome')
 header.textContent=`Welcome, ${queryName}!`
 
+//Drag-scroll
 const scrollContainers = document.querySelectorAll('.scroll-container')
 console.log(scrollContainers)
 
@@ -42,7 +44,33 @@ scrollContainers.forEach((container)=>{ //for each container
     })
     container.addEventListener('mousemove', (e) => { //On movement
         if(isGrabbing === true) {
-            container.scrollLeft = touchPointX - e.x + scrollPosition  
+            container.scrollLeft = (touchPointX - e.x) * 2 + scrollPosition  
         }
+    })
+})
+
+//Dayselection
+let day1 = false
+let day2 = false
+let day3 = false
+
+const buttons = document.querySelectorAll('.day-button')
+buttons.forEach((button)=>{
+    button.addEventListener('click', (e)=>{
+        const day = e.currentTarget.dataset.day
+        if(day === '1') {
+            day1 ? day1 = false : day1 = true
+            e.currentTarget.classList.toggle('bg-red-500')
+        }
+        else if(day === '2') {
+            day2 ? day2 = false : day2 = true
+            e.currentTarget.classList.toggle('bg-red-500')
+        }
+        else if(day === '3') {
+            day3 ? day3 = false : day3 = true
+            e.currentTarget.classList.toggle('bg-red-500')
+        }
+        
+        console.log(day1, day2, day3)
     })
 })

@@ -4,32 +4,39 @@
 @tailwind utilities;
 
 @layer utilities {
-    .scroll-snap-none {
-      scroll-snap-type: none;
-    }
-    .scroll-snap-x {
-      scroll-snap-type: x;
-    }
-    .scroll-snap-y {
-      scroll-snap-type: y;
-    }
-    .movie-grid-cols {
-        grid-template-columns: repeat(3, minmax(350px, 1fr));
-    } 
-    .height-card-lower {
-        height: 46%;
-    }
-    .height-card-upper {
-        height: 54%;
-    }
-    .outline-white {
-        outline: white solid 2px;
-    }
-    .rm-scroll {
-        scrollbar-width: none; /* For Firefox */
-        -ms-overflow-style: none; /* For Internet Explorer and Edge */
-    }
-    .rm-scroll::-webkit-scrollbar {
-      width: 0px; /* For Chrome, Safari, and Opera */
-    }
+  .scroll-snap-none {
+    scroll-snap-type: none;
   }
+  .scroll-snap-x {
+    scroll-snap-type: x;
+  }
+  .scroll-snap-y {
+    scroll-snap-type: y;
+  }
+  .movie-grid-cols {
+    grid-template-columns: repeat(3, minmax(350px, 1fr));
+  }
+  .height-card-lower {
+    height: 46%;
+  }
+  .height-card-upper {
+    height: 54%;
+  }
+  .outline-white {
+    outline: white solid 2px;
+  }
+  .rm-scroll {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
+  .rm-scroll::-webkit-scrollbar {
+    width: 0px; /* For Chrome, Safari, and Opera */
+  }
+  .c-focus:focus {
+    outline: none;
+    border: 2px;
+  }
+  .border-3 {
+    border-width: 3px;
+  }
+}

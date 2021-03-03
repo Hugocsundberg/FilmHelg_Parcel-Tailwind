@@ -7,13 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body class="overflow-x-hidden">
     <section class="topSection relative h-screen">
         <img class="object-cover h-full absolute" src="./media/Group.svg" alt="Background image">
         <div class="bg-gradient-to-b from-transparent to-black object-cover w-full h-full absolute"></div>
         <div class="contentContainer absolute top-1/3">
-            <h1 class="welcome my-8 text-white text-center text-4xl z-10 realative text-center w-full">Välkommen, Namn!</h1>
-            <p class=" mx-16 text-white text-center text-md z-10 realative text-center">Upplev biomagin hemma med bara några klick. Välj vilka dagar som passar dig, poppa popcorn och sätt dig tillrätta. Vi önskar dig en magisk bioupplevelse!</p>
+            <h1 class="welcome my-8 text-white text-4xl z-10 realative text-center w-full">Välkommen, Namn!</h1>
+            <p class=" mx-16 text-white text-md z-10 realative text-center">Upplev biomagin hemma med bara några klick. Välj vilka dagar som passar dig, poppa popcorn och sätt dig tillrätta. Vi önskar dig en magisk bioupplevelse!</p>
         </div>
         <div class="flex justify-center bottom-12 absolute z-30 w-full">
             <img src="./media/Vector.svg" alt="" class="animate-bounce h-8 relative">
@@ -95,20 +95,34 @@
             </div>
         </div>
     </section>
-    <section class="bg-black flex flex-col items-center space-y-8 pb-12">
-        <h2 class="text-white text-2xl p-4">Välj antal dagar och beställ din biljett idag!</h2>
-        <button class="box-border h-12 w-60 outline-white bg-black">
-            <p class="text-white">19 Mars</p>
-        </button>
-        <button class="box-border h-12 w-60 outline-white bg-black">
-            <p class="text-white">20 Mars</p>
-        </button>
-        <button class="box-border h-12 w-60 outline-white bg-black">
-            <p class="text-white">21 Mars</p>
-        </button>
-        <input class="text-center text-xs box-border h-8 w-60" placeholder="Din e-postadress" type="email" name="email" id="email">
-        <input class=" text-white text-xs h-8 w-60 bg-red-700" type="submit" value="Skicka">
+    <section class="bg-black">
+        <div class="flex flex-col items-center space-y-12 pb-20">
+            <h2 class="text-center text-white text-2xl px-8">Välj antal dagar och beställ din biljett idag!</h2>
+            <button data-day="1" class="day-button text-white transform hover:scale-105 transition duration-300 h-12 w-60 border-white focus:border-blue-400 focus:outline-none border-2">
+                <p class="">19 Mars</p>
+            </button>
+            <button data-day="2" class="day-button text-white transform hover:scale-105 transition duration-300 h-12 w-60 border-white focus:border-blue-400 focus:outline-none border-2">
+                <p class="text-white">20 Mars</p>
+            </button>
+            <button data-day="3" class="day-button text-white transform hover:scale-105 transition duration-300 h-12 w-60 border-white focus:border-blue-400 focus:outline-none border-2">
+                <p class="text-white">21 Mars</p>
+            </button>
+        </div>
+        <div class="font-bold bg-gray-300 w-full p-4 px-8 flex flex-row justify-between mb-16">
+            <p class="text-black">Att betala</p>
+            <p>X kr</p>
+        </div>
+        <p class="mb-4 text-white w-screen px-8">Din e-post</p>
+        <input class="text-white mb-2 focus:border-blue-300 focus:outline-none border-b-2 border-gray-400 bg-transparent text-sm h-8 w-72 relative left-8" placeholder="exempel@gmail.com" type="email" name="email" id="email">
+        <p class="text-xs mb-8 ml-8 text-gray-500">Din e-post används för att skicka köpbekräftelse och kodnyckel</p>
+        <div class="mb-8 flex flex-row items-center">
+            <input class="outline-none focus:border-blue-400 checked:bg-blue-400 appearance-none h-6 w-6 bg-black border-3 rounded-md border-gray-500 ml-8 bg-transparent" type="checkbox" name="" id="">
+            <p class="text-white ml-4">Jag godkänner <span class="text-red-500 underline">köpvillkoren</span>.</p>
+        </div>
+        <div class="flex justify-center">
+            <input class="mb-8 text-black text-xs h-10 w-72 bg-gray-300 focus:border-blue-400 focus:outline-none border-2" type="submit" value="Skicka">
+        </div>  
     </section>
     <script src="./scripts/main.js"></script>
 </body>
-</html>
+</html> 

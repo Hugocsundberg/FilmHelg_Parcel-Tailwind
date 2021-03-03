@@ -11,6 +11,8 @@ module.exports = {
     extend: {},
   },
   variants: {
+    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active', 'checked'],
+    textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active', 'checked'],
     extend: {},
   },
   plugins: [],
