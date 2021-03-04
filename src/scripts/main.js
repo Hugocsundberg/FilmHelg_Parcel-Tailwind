@@ -1,5 +1,3 @@
-
-
 //Get query parameters
 const getQuery = () => {
     let QueryParameters = window.location.search
@@ -144,3 +142,36 @@ const checkIfValidSend = ()=>{
 
 window.addEventListener('keydown', checkIfValidSend)
 checkBox.addEventListener('click', checkIfValidSend)
+
+//Drapes
+const rightDrape = document.querySelector('.rightDrapePath')
+const leftDrape = document.querySelector('.leftDrapePath')
+
+let pathInt1 = 1500
+let pathInt2 = 500
+let pathInt3Left = 211
+let pathInt3Right = 102
+let slower = 0
+
+const drapeInterval = setInterval(() => {
+    slower++
+    if(pathInt1 > 303) {
+            pathInt1 = pathInt1 -5
+    } 
+    if(pathInt2 > 8) {
+        pathInt2 = pathInt2 -2
+    } 
+    if(slower % 3 === 0) {
+        if(pathInt3Left > 122) {
+            pathInt3Left = pathInt3Left -1
+        } 
+        if(pathInt3Right < 191) {
+            pathInt3Right = pathInt3Right +1
+        } 
+    }
+    if(pathInt1 <= 303 && pathInt2 <= 8 && pathInt3Left <= 102 && pathInt3Right >= 211) {
+        clearInterval(drapeInterval)
+    }
+    rightDrape.setAttribute('d', `M 102.80952,1.5119048 H 211.66666 V ${pathInt1}.84525 l -${pathInt2}.34219,-1.35553 C 197.05493,185.59875 ${pathInt3Right}.87662,99.819985 102.80952,1.5119048 Z`)
+    leftDrape.setAttribute('d', `M 211.66666,1.5119048 H 102.80952 V ${pathInt1}.84525 l ${pathInt2}.34219,-1.35553 C 117.42125,185.59875 ${pathInt3Left}.59956,99.819985 211.66666,1.5119048 Z`)
+}, 10);

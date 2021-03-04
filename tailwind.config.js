@@ -17,12 +17,22 @@ module.exports = {
         fadein: {
           '0%': {opacity: 0},
           '100%': {opacity: 1},
+        },
+        outRight: {
+          '0%': {transform: 'translateX(0)'},
+          '100%': {transform: 'translateX(100%)'}
+        },
+        outLeft: {
+          '0%': {transform: 'translateX(0)'},
+          '100%': {transform: 'translateX(-100%)'}
         }
        },
        animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
         fadein: 'fadein 2.5s ease-out both',
         fadeout: 'fadein 2.5s ease-out reverse forwards',
+        outRight: 'outRight 3s .3s ease-in-out both',
+        outLeft: 'outLeft 3s .3s ease-in-out both'
        }
     },
   },
