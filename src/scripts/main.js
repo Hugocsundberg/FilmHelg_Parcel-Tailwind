@@ -126,7 +126,21 @@ buttons.forEach((button)=>{
     })
 })
 
-//Total cost 
+//SendActive 
+const sendButton = document.querySelector('.send-button')
+const emailInput = document.querySelector('.email-input')
+const checkBox = document.querySelector('.check-box')
+const checkIfValidSend = ()=>{
+    setTimeout(() => {
+        if(emailInput.value !== "" && checkBox.checked) {
+            sendButton.classList.add('bg-red-500')
+            sendButton.classList.add('text-white')
+        } else {
+            sendButton.classList.remove('bg-red-500')
+            sendButton.classList.remove('text-white')
+        }
+    }, 100);
+}
 
-
-
+window.addEventListener('keydown', checkIfValidSend)
+checkBox.addEventListener('click', checkIfValidSend)
