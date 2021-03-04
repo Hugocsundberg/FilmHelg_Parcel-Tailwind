@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss src/tailwind.css -o dist/main.css && postcss src/tailwind.css -o src/main.css && browserify -p tinyify src/scripts/* -o dist/scripts/main.js && node htmlMinifier.js && node imageMover.js",
+    "build": "postcss src/tailwind.css -o dist/main.css && postcss src/tailwind.css -o src/main.css && browserify -p tinyify src/scripts/main.js -o dist/scripts/main.js && node htmlMinifier.js && node imageMover.js",
     "dev": "postcss src/tailwind.css -o src/main.css && live-server ./src"
   },
   "author": "",

@@ -1,3 +1,5 @@
+
+
 //Get query parameters
 const getQuery = () => {
     let QueryParameters = window.location.search
@@ -20,7 +22,6 @@ header.textContent=`Welcome, ${queryName}!`
 
 //Drag-scroll
 const scrollContainers = document.querySelectorAll('.scroll-container')
-console.log(scrollContainers)
 
 scrollContainers.forEach((container)=>{ //for each container
     let touchPointX = 0
@@ -28,8 +29,6 @@ scrollContainers.forEach((container)=>{ //for each container
     let isGrabbing = false
     
     container.addEventListener('mousedown', (e) => { //On press
-        console.log(e)
-        console.log(`LayerX: ${e.layerX} scrollLeft: ${e.currentTarget.scrollLeft}`)
         touchPointX = e.x 
         isGrabbing = true
         
@@ -53,6 +52,57 @@ scrollContainers.forEach((container)=>{ //for each container
 let day1 = false
 let day2 = false
 let day3 = false
+let currentPrice = 0
+
+const totalCostElement = document.querySelector('.total-cost')
+const getTotal = () => {
+    let totalCost = 0;
+    if(day1 === true) {
+        totalCost = totalCost + 100
+    }
+    if(day2 === true) {
+        totalCost = totalCost + 100
+    }
+    if(day3 === true) {
+        totalCost = totalCost + 100
+    }
+    if(getQuery().score > 500) {
+        totalCost = totalCost - 100
+        if(totalCost < 0) totalCost = 0;
+    }
+    return totalCost
+}
+
+let isActive = false
+const updatePrice = () => {
+    if(isActive === false) {
+        const total = getTotal()
+        if(currentPrice < total) {
+            isActive = true
+            const priceInterval = setInterval(() => {
+                currentPrice++
+                totalCostElement.textContent = `${currentPrice} Kr`
+                if(currentPrice >= total) {
+                    isActive = false
+                    clearInterval(priceInterval)
+                    updatePrice()
+                }
+            }, 10);
+        }
+        if(currentPrice > total) {
+            isActive = true
+            const priceInterval = setInterval(() => {
+                currentPrice--
+                totalCostElement.textContent = `${currentPrice} Kr`
+                if(currentPrice <= total) {
+                    isActive = false
+                    clearInterval(priceInterval)
+                    updatePrice()
+                }
+            }, 10);
+        }
+    }
+}
 
 const buttons = document.querySelectorAll('.day-button')
 buttons.forEach((button)=>{
@@ -61,16 +111,22 @@ buttons.forEach((button)=>{
         if(day === '1') {
             day1 ? day1 = false : day1 = true
             e.currentTarget.classList.toggle('bg-red-500')
+            updatePrice()
         }
         else if(day === '2') {
             day2 ? day2 = false : day2 = true
             e.currentTarget.classList.toggle('bg-red-500')
+            updatePrice()
         }
         else if(day === '3') {
             day3 ? day3 = false : day3 = true
             e.currentTarget.classList.toggle('bg-red-500')
+            updatePrice()
         }
-        
-        console.log(day1, day2, day3)
     })
 })
+
+//Total cost 
+
+
+
