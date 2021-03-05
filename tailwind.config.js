@@ -10,6 +10,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      gradientColorStops: theme => ({
+        ...theme('colors'),
+        'primary': '#3490dc',
+        'transblack': '#000c'
+       }),
+      screens: {
+        'bio-rem': '92rem',
+      },
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },

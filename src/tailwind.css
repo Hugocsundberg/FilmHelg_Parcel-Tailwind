@@ -13,8 +13,11 @@
   .scroll-snap-y {
     scroll-snap-type: y;
   }
-  .movie-grid-cols {
-    grid-template-columns: repeat(3, minmax(350px, 1fr));
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(350px, 1fr));
+  }
+  .grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(350px, 1fr));
   }
   .height-card-lower {
     height: 46%;
@@ -38,5 +41,11 @@
   }
   .border-3 {
     border-width: 3px;
+  }
+  .max-w-content {
+    max-width: fit-content;
+  }
+  .max-h-content {
+    max-height: fit-content;
   }
 }
