@@ -20,6 +20,7 @@ header.textContent=`Welcome, ${queryName}!`
 
 //Drag-scroll
 const scrollContainers = document.querySelectorAll('.scroll-container')
+const swipeIndication = document.querySelector('.swipeIndicator')
 
 scrollContainers.forEach((container)=>{ //for each container
     let touchPointX = 0
@@ -44,6 +45,16 @@ scrollContainers.forEach((container)=>{ //for each container
             container.scrollLeft = (touchPointX - e.x) * 2 + scrollPosition  
         }
     })
+    const scrollHandler = ()=>{
+        if(container.scrollLeft > 20) {
+            document.querySelectorAll('.swipeIndicator').forEach(indicator => {
+                indicator.classList.add('opacity-0')
+                indicator.classList.remove('animate-swipeIndication')
+            }) 
+        }
+    } 
+    container.addEventListener('scroll', scrollHandler)
+
 })
 
 //Dayselection
@@ -108,17 +119,17 @@ buttons.forEach((button)=>{
         const day = e.currentTarget.dataset.day
         if(day === '1') {
             day1 ? day1 = false : day1 = true
-            e.currentTarget.classList.toggle('bg-red-500')
+            e.currentTarget.classList.toggle('bg-themeRed')
             updatePrice()
         }
         else if(day === '2') {
             day2 ? day2 = false : day2 = true
-            e.currentTarget.classList.toggle('bg-red-500')
+            e.currentTarget.classList.toggle('bg-themeRed')
             updatePrice()
         }
         else if(day === '3') {
             day3 ? day3 = false : day3 = true
-            e.currentTarget.classList.toggle('bg-red-500')
+            e.currentTarget.classList.toggle('bg-themeRed')
             updatePrice()
         }
     })
@@ -128,13 +139,16 @@ buttons.forEach((button)=>{
 const sendButton = document.querySelector('.send-button')
 const emailInput = document.querySelector('.email-input')
 const checkBox = document.querySelector('.check-box')
+const checkImage = document.querySelector('.checkImage')
 const checkIfValidSend = ()=>{
     setTimeout(() => {
+        checkBox.checked ? checkImage.classList.remove('hidden') : checkImage.classList.add('hidden')
+            
         if(emailInput.value !== "" && checkBox.checked) {
-            sendButton.classList.add('bg-red-500')
+            sendButton.classList.add('bg-themeRed')
             sendButton.classList.add('text-white')
         } else {
-            sendButton.classList.remove('bg-red-500')
+            sendButton.classList.remove('bg-themeRed')
             sendButton.classList.remove('text-white')
         }
     }, 100);
