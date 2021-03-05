@@ -10,6 +10,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        themeRed: {
+          DEFAULT: '#cc0028',
+        }
+      },
       gradientColorStops: theme => ({
         ...theme('colors'),
         'primary': '#3490dc',
@@ -34,6 +39,20 @@ module.exports = {
         outLeft: {
           '0%': {transform: 'translateX(0)'},
           '100%': {transform: 'translateX(-100%)'}
+        },
+        swipeIndication: {
+          '0%': {
+            transform: 'translateX(0)',
+            opacity: 1
+          },
+          '61.8%': {
+            transform: 'translateX(-2rem)',
+            opacity: 0
+          },
+          '100%': {
+            transform: 'translateX(-2rem)',
+            opacity: 0
+          }
         }
        },
        animation: {
@@ -41,13 +60,15 @@ module.exports = {
         fadein: 'fadein 2.5s ease-out both',
         fadeout: 'fadein 2.5s ease-out reverse forwards',
         outRight: 'outRight 3s .3s ease-in-out both',
-        outLeft: 'outLeft 3s .3s ease-in-out both'
+        outLeft: 'outLeft 3s .3s ease-in-out both',
+        swipeIndication: 'swipeIndication 3s ease-out both infinite'
        }
     },
   },
   variants: {
     backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active', 'checked'],
     textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active', 'checked'],
+    borderColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active', 'checked'],
     extend: {},
   },
   plugins: [],
