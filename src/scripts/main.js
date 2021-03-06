@@ -160,6 +160,8 @@ checkBox.addEventListener('click', checkIfValidSend)
 //Drapes
 const rightDrape = document.querySelector('.rightDrapePath')
 const leftDrape = document.querySelector('.leftDrapePath')
+const rightDrapeContainer = document.querySelector('.animate-outRight')
+const leftDrapeContainer = document.querySelector('.animate-outLeft')
 
 let pathInt1 = 1500
 let pathInt2 = 500
@@ -189,7 +191,7 @@ const drapeInterval = setInterval(() => {
     rightDrape.setAttribute('d', `M 102.80952,1.5119048 H 211.66666 V ${pathInt1}.84525 l -${pathInt2}.34219,-1.35553 C 197.05493,185.59875 ${pathInt3Right}.87662,99.819985 102.80952,1.5119048 Z`)
     leftDrape.setAttribute('d', `M 211.66666,1.5119048 H 102.80952 V ${pathInt1}.84525 l ${pathInt2}.34219,-1.35553 C 117.42125,185.59875 ${pathInt3Left}.59956,99.819985 211.66666,1.5119048 Z`)
     setTimeout(() => {
-        rightDrape.remove()
-        leftDrape.remove()
+        rightDrapeContainer.remove()
+        leftDrapeContainer.remove()
     }, 3000);
 }, 10);
