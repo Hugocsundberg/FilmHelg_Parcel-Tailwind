@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 module.exports = {
   purge: {
     content: [
@@ -11,6 +12,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        gray: colors.trueGray,
+        red: colors.red,
+        blue: colors.lightBlue,
+        yellow: colors.amber,
         themeRed: {
           DEFAULT: '#cc0028',
         }
