@@ -223,13 +223,13 @@
         </div>
         <div class="flex flex-col items-center">
             <div>
-                <p class="mb-4 text-white px-8">Din e-post</p>
-                <input class="email-input text-white mb-2 focus:border-yellow-500 focus:outline-none border-b-2 border-gray-400 bg-transparent text-sm h-8 w-72 relative left-8" placeholder="exempel@gmail.com" type="email" name="email" id="email">
+                <label for="email" class="mb-4 relative block text-white px-8">Din e-post</label>
+                <input id="email" name="email" class="email-input text-white mb-2 focus:border-yellow-500 focus:outline-none border-b-2 border-gray-400 bg-transparent text-sm h-8 w-72 relative left-8" placeholder="exempel@gmail.com" type="email" name="email" id="email">
                 <p class="text-xs mb-8 ml-8 text-gray-400">Din e-post används för att skicka köpbekräftelse och kodnyckel</p>
                 <div class="mb-16 flex flex-row items-center">
                     <img class="checkImage hidden absolute h-4 ml-9 pointer-events-none" src="./media/check.svg" alt="">
-                    <input class="check-box outline-none focus:border-yellow-500 checked:bg-blue-500 checked:border-yellow-500 appearance-none h-6 w-6 bg-black border-3 rounded-md border-gray-500 ml-8 bg-transparent" type="checkbox" name="" id="">
-                    <p class="text-white ml-4">Jag godkänner <a href="https://www.filmstaden.se/medlem/medlemsvillkor/" class="text-red-500 underline hover:point">köpvillkoren</a>.</p>
+                    <input id="check-box" name="check-box" class="check-box outline-none focus:border-yellow-500 checked:bg-blue-500 checked:border-yellow-500 appearance-none h-6 w-6 bg-black border-3 rounded-md border-gray-500 ml-8 bg-transparent" type="checkbox" name="" id="">
+                    <p class="text-white ml-4"><label for="check-box">Jag godkänner <a href="https://www.filmstaden.se/medlem/medlemsvillkor/" class="text-red-500 underline outline-none focus:border-yellow-500 focus:outline-none focus:border-2 hover:point">köpvillkoren</a>.</label></p>
                 </div>
             </div>
         </div>

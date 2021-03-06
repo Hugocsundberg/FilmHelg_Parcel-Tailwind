@@ -48,4 +48,7 @@
   .max-h-content {
     max-height: fit-content;
   }
+  * {
+    transition: .3s;
+  }
 }
