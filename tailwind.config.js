@@ -1,4 +1,6 @@
 const colors = require('tailwindcss/colors')
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: {
     content: [
@@ -11,6 +13,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        ...fontFamily,
+        'sans': ['Josefin Sans', 'ui-sans-serif', 'system-ui'],
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',

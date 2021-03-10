@@ -16,7 +16,7 @@ const queryName = getQuery().name
 const queryScore = getQuery().name
 
 const header = document.querySelector('h1.welcome')
-header.textContent=`Welcome, ${queryName}!`
+header.textContent=`Välkommen, ${queryName}!`
 
 //Drag-scroll
 const scrollContainers = document.querySelectorAll('.scroll-container')
