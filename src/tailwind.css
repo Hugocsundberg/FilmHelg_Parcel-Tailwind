@@ -51,4 +51,13 @@
   * {
     transition: 0.3s;
   }
+  .ml-8dot5 {
+    margin-left: 8.5rem;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  .max-w-90 {
+    max-width: 90rem;
+  }
 }

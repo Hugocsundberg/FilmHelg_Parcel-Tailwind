@@ -12,8 +12,8 @@ const getQuery = () => {
     return queryObject
 }
 
-const queryName = getQuery().name
-const queryScore = getQuery().name
+const queryName = getQuery().name || "Josefin"
+const queryScore = getQuery().score || 700
 
 const header = document.querySelector('h1.welcome')
 header.textContent=`Välkommen, ${queryName}!`
@@ -62,8 +62,24 @@ let day1 = false
 let day2 = false
 let day3 = false
 let currentPrice = 0
+let currentSubTotal = 0
 
 const totalCostElement = document.querySelector('.total-cost')
+const subTotalElement = document.querySelector('.sub-total')
+const discountElement = document.querySelector('.discount')
+const discountScoreElement = document.querySelector('.score-paragraph')
+const subTotalParagraphElement = document.querySelector('.sub-total-paragraph')
+
+let subTotal = 0
+let discount = 0
+if(queryScore > 1000) {
+    discount = 200
+} else if(queryScore > 500) {
+    discount = 100
+}
+discountElement.textContent = `-${discount}Kr`
+discountScoreElement.textContent = `${queryScore} poäng`
+
 const getTotal = () => {
     let totalCost = 0;
     if(day1 === true) {
@@ -75,9 +91,28 @@ const getTotal = () => {
     if(day3 === true) {
         totalCost = totalCost + 100
     }
-    if(getQuery().score > 500) {
-        totalCost = totalCost - 100
+    subTotal = totalCost
+    if(queryScore > 500) {
+        totalCost = totalCost - discount
         if(totalCost < 0) totalCost = 0;
+    } else if(queryScore > 1000) {
+        totalCost = totalCost - discount
+        if(totalCost < 0) totalCost = 0;
+    }
+    return totalCost
+    
+}
+
+const getSubTotal = () => {
+    let totalCost = 0;
+    if(day1 === true) {
+        totalCost = totalCost + 100
+    }
+    if(day2 === true) {
+        totalCost = totalCost + 100
+    }
+    if(day3 === true) {
+        totalCost = totalCost + 100
     }
     return totalCost
 }
@@ -111,7 +146,61 @@ const updatePrice = () => {
             }, 10);
         }
     }
+    // subTotalElement.textContent = `${subTotal}Kr`
+    
 }
+
+let isActiveSubTotal = false
+const updateSubTotal = () => {
+    if(isActiveSubTotal === false) {
+        const subTotal = getSubTotal()
+        if(currentSubTotal < subTotal) {
+            isActiveSubTotal = true
+            const subTotalInterval = setInterval(() => {
+                currentSubTotal++
+                subTotalElement.textContent = `${currentSubTotal} Kr`
+                if(currentSubTotal >= subTotal) {
+                    isActiveSubTotal = false
+                    clearInterval(subTotalInterval)
+                    updateSubTotal()
+                }
+            }, 10);
+        }
+        if(currentSubTotal > subTotal) {
+            isActiveSubTotal = true
+            const subTotalInterval = setInterval(() => {
+                currentSubTotal--
+                subTotalElement.textContent = `${currentSubTotal} Kr`
+                if(currentSubTotal <= subTotal) {
+                    isActiveSubTotal = false
+                    clearInterval(subTotalInterval)
+                    updateSubTotal()
+                }
+            }, 10);
+        }
+    }
+}
+
+const getNumberOfSelectedDays = () => {
+    let iDay = 0
+    if(day1 === true) {
+        iDay++
+    }
+    if(day2 === true) {
+        iDay++
+    }
+    if(day3 === true) {
+        iDay++
+    }
+    return iDay
+}
+
+const updateDayElement = () => {
+subTotalParagraphElement.textContent= `${getNumberOfSelectedDays()} ${getNumberOfSelectedDays() === 1 ? 'dag' : 'dagar'} `
+
+}
+
+updateDayElement()
 
 const buttons = document.querySelectorAll('.day-button')
 buttons.forEach((button)=>{
@@ -120,17 +209,26 @@ buttons.forEach((button)=>{
         if(day === '1') {
             day1 ? day1 = false : day1 = true
             e.currentTarget.classList.toggle('bg-themeRed')
+            e.currentTarget.classList.toggle('border-themeRed')
             updatePrice()
+            updateSubTotal()
+            updateDayElement()
         }
         else if(day === '2') {
             day2 ? day2 = false : day2 = true
             e.currentTarget.classList.toggle('bg-themeRed')
+            e.currentTarget.classList.toggle('border-themeRed')
             updatePrice()
+            updateSubTotal()
+            updateDayElement()
         }
         else if(day === '3') {
             day3 ? day3 = false : day3 = true
             e.currentTarget.classList.toggle('bg-themeRed')
+            e.currentTarget.classList.toggle('border-themeRed')
             updatePrice()
+            updateSubTotal()
+            updateDayElement()
         }
     })
 })

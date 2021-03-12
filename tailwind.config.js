@@ -26,6 +26,7 @@ module.exports = {
         yellow: colors.amber,
         themeRed: {
           DEFAULT: '#cc0028',
+          light: '#f6234c'
         }
       },
       gradientColorStops: theme => ({
