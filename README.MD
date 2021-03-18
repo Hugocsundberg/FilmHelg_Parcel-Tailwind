@@ -6,7 +6,7 @@ The project uses Tailwind for styling and browserify, postCSS and a costum html-
 The site is live on netlify: https://filmhelg.netlify.app
 
 
-### Code review
+### Code review - Daniel Borgström
 1. Some not so needed info in the SVG-tags.
 2. Would've move the addEventListeners to a seperate file and create a function to call them.
 3. Can change "isActive === false" to !isActive
