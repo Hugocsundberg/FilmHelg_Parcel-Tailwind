@@ -72,10 +72,10 @@ const subTotalParagraphElement = document.querySelector('.sub-total-paragraph')
 
 let subTotal = 0
 let discount = 0
-if(queryScore > 1000) {
-    discount = 200
-} else if(queryScore > 500) {
+if(queryScore >= 1000) {
     discount = 100
+} else if(queryScore >= 600) {
+    discount = 50
 }
 discountElement.textContent = `-${discount}Kr`
 discountScoreElement.textContent = `${queryScore} poäng`
