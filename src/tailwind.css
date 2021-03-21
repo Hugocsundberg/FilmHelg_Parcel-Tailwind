@@ -63,4 +63,10 @@
   .max-w-83 {
     max-width: 83rem;
   }
+  .scroll-container {
+    scroll-snap-type: x mandatory;
+  }
+  .scroll-item {
+    scroll-snap-align: start;
+  }
 }
